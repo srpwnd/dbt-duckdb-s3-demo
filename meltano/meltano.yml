@@ -1,0 +1,8 @@
+version: 1
+plugins:
+  transformers:
+    - name: dbt-duckdb
+      variant: jwills
+      pip_url: dbt-duckdb==1.4.0 duckdb==0.7.1
+environments:
+  - name: local

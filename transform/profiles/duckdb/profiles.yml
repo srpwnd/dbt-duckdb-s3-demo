@@ -1,0 +1,22 @@
+# DuckDB config reference:
+config:
+  send_anonymous_usage_stats: False
+  use_colors: True
+meltano:
+  target: "{{ env_var('MELTANO_ENVIRONMENT', 'local') }}"
+  outputs:
+    local:
+      type: duckdb
+      path: "/project/project/data/data.duckdb"
+      extensions:
+        - parquet
+        - httpfs
+      settings:
+        s3_endpoint: "localstack:4566"
+        s3_region: ""
+        s3_access_key_id: "test"
+        s3_secret_access_key: "test"
+        s3_url_style: "path"
+        s3_use_ssl: "false"
+      external_root: "s3://datawarehouse/data"
+      threads: 4
